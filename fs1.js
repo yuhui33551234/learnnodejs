@@ -22,5 +22,31 @@ var fs = require('fs')
 
 
 //同步读取
-var data = fs.readFileSync('pu1.js','utf-8');
-console.log(data)
+// var data = fs.readFileSync('pu1.js','utf-8');
+// console.log(data)
+
+//异步写文件
+//var data = 'Hello, Node JS';
+// fs.writeFile('output.txt', data, function(err){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log('ok');
+//     }
+// })
+//同步写文件
+// fs.writeFileSync('output.txt',data)
+
+fs.stat('output.txt',function(err,stat){
+    if(err){
+        console.log(err)
+    }else{
+        console.log('isFile'+stat.isFile())
+        console.log(stat.isDirectory())
+        if(stat.isFile()){
+            console.log('size:'+stat.size);
+            console.log('birth time'+stat.birthtime)
+            console.log('modified time'+stat.mtime)
+        }
+    }
+})
