@@ -37,16 +37,18 @@ var fs = require('fs')
 //同步写文件
 // fs.writeFileSync('output.txt',data)
 
-fs.stat('output.txt',function(err,stat){
-    if(err){
-        console.log(err)
-    }else{
-        console.log('isFile'+stat.isFile())
-        console.log(stat.isDirectory())
-        if(stat.isFile()){
-            console.log('size:'+stat.size);
-            console.log('birth time'+stat.birthtime)
-            console.log('modified time'+stat.mtime)
-        }
-    }
-})
+// fs.stat('output.txt',function(err,stat){
+//     if(err){
+//         console.log(err)
+//     }else{
+//         console.log('isFile'+stat.isFile())
+//         console.log(stat.isDirectory())
+//         if(stat.isFile()){
+//             console.log('size:'+stat.size);
+//             console.log('birth time'+stat.birthtime)
+//             console.log('modified time'+stat.mtime)
+//         }
+//     }
+// })
+var f1 = fs.statSync('output.txt')
+console.log(f1)
