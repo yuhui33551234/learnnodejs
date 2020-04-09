@@ -2,6 +2,8 @@
 
 var fs = require('fs')
 
+
+
 //异步读取
 // fs.readFile('pu1.js','utf-8',function(err,data){
 //     if(err){
