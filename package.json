@@ -13,6 +13,9 @@
         "url": "https://github.com/yuhui33551/learnnode.git"
     },
     "dependencies": {
-        "qiniu": "^7.3.0"
+        "install": "^0.13.0",
+        "qiniu": "^7.3.0",
+        "request": "^2.88.2",
+        "request-promise": "^4.2.5"
     }
 }
