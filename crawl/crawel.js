@@ -13,24 +13,19 @@ rp(options).then(function($){
     $('.post-archive ul li').each(function(index,element){
         href = $(element).find('a').attr('href')
         title = $(element).find('a').attr('title')
-        console.log('title: '+title+ ' href: '+href)
-
+        if (title.indexOf("Go") >=0 || title.indexOf("go") >=0 ){
+            
+            console.log('title: '+title+ ' href: '+href)
+        }
+        
+/*
         options.uri = href
         rp(options).then(function($){
-            console.log( cheerio.html($('.post-content')))
+            //console.log( cheerio.html($('.post-content')))
         }).catch(function(err){
             console.log(err)
-        })
+        })*/
     })
 }).catch(function(err){
     console.log(err)
 })
-
- function getContent(url){
-    options.uri = url
-    rp(options).then(function($){
-        console.log( $('.post-content'))
-    }).catch(function(err){
-        console.log(err)
-    })
-}
