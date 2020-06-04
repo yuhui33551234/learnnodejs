@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test node</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    console.log(
+        new Promise((resolve, reject) => {
+            reject("拒绝状态");
+            //resolve("操作成功")
+        }).then(
+            value => {
+                console.log("成功的业务处理1")
+            },
+            reason => {
+                console.log("拒绝的业务处理1")
+            }
+        ).then(
+            value => {
+                console.log("成功的业务处理2")
+            },
+            reason => {
+                console.log("拒绝的业务处理2")
+            }
+        )
+    )
+</script>
+
+</html>

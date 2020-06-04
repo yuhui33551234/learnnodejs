@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test node</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    let promise = new Promise(resolve=>{
+        setTimeout(() => {
+            console.log("settimneout")
+            resolve() 
+        }, 0);
+        
+        console.log("resolve")
+    }).then(value=>console.log("cheggong"))
+    console.log("end")
+</script>
+
+</html>

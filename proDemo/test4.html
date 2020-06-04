@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test node</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    let p1 = new Promise((resolve, reject)=>{
+        resolve("jujue")
+    })
+    new Promise((resolve, reject) => {
+        resolve(p1);
+    }).then(
+        error => {
+            console.log("error "+error)
+        },
+        msg1 => {
+            console.log("msg2 "+msg1);
+        },
+        msg1 => {
+            console.log("msg3 "+msg1);
+        }
+    );
+    console.log("main end")
+</script>
+
+</html>
