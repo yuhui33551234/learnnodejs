@@ -1,17 +1,17 @@
 var mongodbClient = require('mongodb').MongoClient
-var url = "mongodb://dbcloud.coolara.com/27017"
+var url = "mongodb://admin:admin741@dbcloud.coolara.com:27017/"
 
-//插入一个
-// mongodbClient.connect(url, {useNewUrlParser:true,useUnifiedTopology:true},function(err, db){
-//     if(err) throw err;
-//     var dbo = db.db("crawl");
-//     var myobj = {name:"yuhui2", type:"good2",like:['chi','he','玩']}
-//     dbo.collection("users").insertOne(myobj, function(err, res){
-//         if(err) throw err;
-//         console.log('insert success')
-//         db.close()
-//     })
-// })
+////插入一个
+mongodbClient.connect(url, {useNewUrlParser:true,useUnifiedTopology:true},function(err, db){
+    if(err) throw err;
+    var dbo = db.db("crawl");
+    var myobj = {name:"yuhui2", type:"good2",like:['chi','he','玩']}
+    dbo.collection("users").insertOne(myobj, function(err, res){
+        if(err) throw err;
+        console.log('insert success')
+        db.close()
+    })
+})
 //插入多个
 // mongodbClient.connect(url, {useNewUrlParser:true,useUnifiedTopology:true},function(err, db){
 //     if(err) throw err;
@@ -65,15 +65,16 @@ var url = "mongodb://dbcloud.coolara.com/27017"
 //         db.close()
 //     })
 // })
-mongodbClient.connect(url, {useNewUrlParser:true,useUnifiedTopology:true},function(err, db){
-    if(err) throw err;
-    var dbo = db.db("crawl");
-    // var mysort = {"name":-1}
-    // var updateStr = {$set: {"type": "chou"}}
-    var whereStr = {"name":"yuhui2"}
-    dbo.collection("users").deleteOne(whereStr,function(err, result){
-        if(err) throw err;
-        console.log(result)
-        db.close()
-    })
-})
+
+// mongodbClient.connect(url, {useNewUrlParser:true,useUnifiedTopology:true},function(err, db){
+//     if(err) throw err;
+//     var dbo = db.db("crawl");
+//     // var mysort = {"name":-1}
+//     // var updateStr = {$set: {"type": "chou"}}
+//     var whereStr = {"name":"yuhui2"}
+//     dbo.collection("users").deleteOne(whereStr,function(err, result){
+//         if(err) throw err;
+//         console.log(result)
+//         db.close()
+//     })
+// })

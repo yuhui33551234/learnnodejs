@@ -29,7 +29,8 @@ function run(){
         page_url = base_url+"pg"+i+"/"
         console.log("开始处理第"+i+"页,url:"+page_url)
         base_option.url = page_url
-        loupan_info(base_option)
+        dics = loupan_info(base_option)
+
         i++;
     }
 }
@@ -73,15 +74,16 @@ function loupan_info(option){
             insertOne('loupan', dic)
             //console.log(name+" " +fstatus+" " +ftype+" " +addr +" " +room+" " +tag+" " +price+" " +avgr)
             console.log("第"+i+"页")
+            return loupan_arr
         })
     })
 }
 
 
 function insertOne(collection, obj){
-    //return new Promise((resolve, rehect)=>{
+     new Promise((resolve, rehect)=>{
         var MongoClient = require('mongodb').MongoClient
-        var url = "mongodb://dbcloud.coolara.com/27017"
+        var url = "mongodb://admin:admin741@dbcloud.coolara.com/27017"
         MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, db){
             if(err) throw err;
             var dbo = db.db("beike")
@@ -89,9 +91,9 @@ function insertOne(collection, obj){
                 if(err) reject(err)
                 console.log("insert success");
                 db.close()
-                //resolve()
+                resolve()
             })
         })
-    //})
+    })
 }
 run()
