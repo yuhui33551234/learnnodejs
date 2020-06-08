@@ -1,8 +1,8 @@
 var crawler = require("crawler");
 
 var c = new crawler({
-    //rateLimit:1000,
-    maxConnections:2,
+    rateLimit:3000,
+    maxConnections:1,
     callback:function(error,res,done){
         if(error){
             console.log(error)
@@ -12,9 +12,7 @@ var c = new crawler({
             //var url = res.uri;
             console.log("current crawl: "+title+" url:"+res.url)
         }
-
         done()
-        
     }
 })
 
@@ -48,6 +46,11 @@ function parseLoupan(error, res, done){
             var fstatus = $(element).find(".resblock-name .resblock-type").text()
             var ftype = $(element).find(".resblock-name > span").last().text()
             var addr = $(element).find(".resblock-location").text().trim()
+            if(addr){
+                addr1 = addr.split("/")[0];
+                addr2 = addr.split("/")[1];
+                addr3 = addr.split("/")[2];
+            }
             const rooms = [];
             var room = $(element).find(".resblock-room > span").each(function(i,e){
                 rooms[i] = $(this).text();
@@ -67,7 +70,9 @@ function parseLoupan(error, res, done){
                 "name":name,
                 "fstatus":fstatus,
                 "ftype":ftype,
-                "addr":addr,
+                "addr1":addr1,
+                "addr2":addr2,
+                "addr3":addr3,
                 "room":room,
                 "tag":tag,
                 "price":price,
