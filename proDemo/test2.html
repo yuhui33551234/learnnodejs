@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test node</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    setTimeout(() => {
+        console.log("setTimeout")
+    }, 0);
+    new Promise(resolve=>{
+        resolve()
+        console.log("resolve")
+    }).then(value=>{
+        console.log("then")
+    })
+    console.log("end")
+</script>
+
+</html>
