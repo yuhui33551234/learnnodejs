@@ -4,8 +4,8 @@ var url = 'mongodb://admin:admin741@dbcloud.coolara.com:27017/'
 var option = {
     reconnectTries: 3,
     auto_reconnect: true,
-    poolSize : 40,
-    connectTimeoutMS: 500,
+    poolSize : 100,
+    connectTimeoutMS: 1000,
     useNewUrlParser: true
 };
 
