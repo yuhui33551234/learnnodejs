@@ -10,8 +10,10 @@ app.listen(3000, function() {
 app.get("/", function(req, res) {
   MongoPool.getInstance(function (client){
     var db = client.db('shop')
-    db.collection('user').find({}).toArray(function(err, result) {
-      res.end(JSON.stringify(result))
-    })
+    db.collection("tt").insertOne({"did":54545}, function(err, res){
+      if(err) throw err;
+      console.log('insert success')
+      //db.close()
+  })
   });
 });

@@ -239,8 +239,8 @@ function parseGWpinglun(error, res, done){
     done()
 }
 
-var mongodbClient = require('mongodb').MongoClient
-var mongdo_url = "mongodb://admin:admin741@dbcloud.coolara.com:27017/"
+//var mongodbClient = require('mongodb').MongoClient
+//var mongdo_url = "mongodb://admin:admin741@dbcloud.coolara.com:27017/"
 var MongoPool = require('./dbPool.js')
 
 // function saveLoupanInfo(dic, tab){
@@ -257,7 +257,7 @@ var MongoPool = require('./dbPool.js')
 function saveLoupanInfo(dic, tab){
     MongoPool.getInstance(function (client){
         var db = client.db("beike")
-        dbo.collection(tab).insertOne(dic, function(err, res){
+        db.collection(tab).insertOne(dic, function(err, res){
             if(err) throw err;
             console.log('insert success')
             //db.close()
