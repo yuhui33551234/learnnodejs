@@ -1,5 +1,8 @@
 var crawler = require("crawler");
 var url = require('url')
+var MongoPool = require('./dbPool.js')
+
+MongoPool.initPool();
 
 var c = new crawler({
     rateLimit:2000,
@@ -194,7 +197,7 @@ function parseYHpinglun(error, res, done){
             }
             //console.log(dic)
             saveLoupanInfo(dic,"yhpinglun")
-            //console.log(dt_zixun+" " +dt_title+" " +dt_zixun+" " +dt_word )
+            console.log(pl_yonghu+" " +pl_text+" " +pl_time+" " +pl_realsew )
         })
     }
     done()
@@ -233,7 +236,7 @@ function parseGWpinglun(error, res, done){
             }
             //console.log(dic)
             saveLoupanInfo(dic,"gwpinglun")
-            //console.log(dt_zixun+" " +dt_title+" " +dt_zixun+" " +dt_word )
+            console.log(agent_name+" " +agent_status+" " +agent_time+" " +agent_text )
         })
     }
     done()
@@ -241,7 +244,7 @@ function parseGWpinglun(error, res, done){
 
 //var mongodbClient = require('mongodb').MongoClient
 //var mongdo_url = "mongodb://admin:admin741@dbcloud.coolara.com:27017/"
-var MongoPool = require('./dbPool.js')
+
 
 // function saveLoupanInfo(dic, tab){
 //     mongodbClient.connect(mongdo_url, {useNewUrlParser:true,useUnifiedTopology:true},function(err, db){
