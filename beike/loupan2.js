@@ -2,8 +2,8 @@ var crawler = require("crawler");
 var url = require('url')
 
 var c = new crawler({
-    rateLimit:5000,
-    maxConnections:1,
+    rateLimit:2000,
+    maxConnections:5,
     callback:function(error,res,done){
         if(error){
             console.log(error)
