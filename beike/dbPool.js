@@ -6,7 +6,8 @@ var option = {
     auto_reconnect: true,
     poolSize : 100,
     connectTimeoutMS: 1000,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology:true
 };
 
 function MongoPool(){}
